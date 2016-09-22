@@ -84,6 +84,7 @@ def rot_13(code):
 
 rot_13('Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!')        
  
+ 
 '''
 4. Define a simple "spelling correction" function correct()that takes a string 
 and sees to it that 1) two or more occurrences of the space character is 
@@ -140,6 +141,8 @@ its present participle form. Test your function with words such as lie, see,
 move and hug. However, you must not expect such simple rules to work for all 
 cases.
 '''
+
+
 
 
               
@@ -232,6 +235,7 @@ def translate(english):
     #corresponding swidsh word
 
 translate(["Merry","Christmas","and","Happy","New","Year"])
+
 
 '''
 12. Implement the higher order functions map(), filter()and reduce(). 
