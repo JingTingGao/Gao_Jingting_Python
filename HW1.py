@@ -3,6 +3,9 @@
 Gao_JingTing
 HW1
 """
+#Overall Comment: Good start. But please refer to the format that Prof.G has shown you during the class to correct your own 
+#format. If you wish, you can correct this and you will have your mark back. And for the code, please try to includes all possible
+#situations. You can see my comment as "Comment:   ", if any misunderstanding happened, please feel free to email me.
 '''
 1. Define a function max() that takes two numbers as arguments 
 and returns the largest of them. Use the if-then-else construct 
@@ -64,7 +67,7 @@ def v(char):
         
 v('e')     
 v('p')   
-
+#Comment: Think about the capital letters. Try to cover all possible situations.
 '''
 5. Write a function translate()that will translate a text 
 into "rövarspråket" (Swedish for "robber's language"). 
@@ -74,7 +77,7 @@ should return the string"tothohisosisosfofunon".
 '''
 
 vowels=['a','i','u','e','o',' ']   #a set of everything do not need to change
-
+#Comment: why include a empty space? Also, cover the capital letters.
 def translate(string):
     result=''   #set the initial result
     for l in string:
@@ -152,7 +155,7 @@ def is_member(x, lst):
 
 is_member('a',['aaa','abd','c',1])
 is_member('b',['g','e'])
-
+#Comment: You can improve the logic with 'in' which is a logic judge.
 '''
 10. Define a function overlapping() that takes two lists and 
 returns True if they have at least one member in common, 
