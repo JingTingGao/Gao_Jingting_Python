@@ -4,6 +4,8 @@ HW3
 
 @author: jingtinggao
 """
+#Overall Comment: Try to stay with a clear format with your code. Explain what kind of problems you are trying to solve. And then
+#                 explain in detail.
 #2 import the pandas package
 import pandas as pd 
 #3 read the located file and transform to table
