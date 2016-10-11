@@ -5,7 +5,11 @@ HW 2
 @author: jingtinggao
 """
 
-
+#Overall Comment: Please refer to Professor G's format, if you have problem with the format, please feel free to email me and
+#                 once you  correct the version, I am more than happy to give back your grades. Please understand that the 
+#                 meaning of "a list of words" also means one sentense not just {"a", "list", "of", "word"}. If you still have
+#                 question about the Q6, I am more than happy to help you with that. And you can discuss those with your friends
+#                 come to the office time.
 '''
 1. Represent a small bilingual lexicon as a Python dictionary in the following 
 fashion {"merry":"god", "christmas":"jul", "and":"och", "happy":gott", 
@@ -25,6 +29,7 @@ def translate(english):
     
 translate(["Merry","Christmas","and","Happy","New","Year"])
 
+#Comment: Your logic works for single word, but how about one string? like "Merry Christmas and Happy New Year"?
 
 '''
 2. Write a function char_freq()that takes a string and builds a frequency 
