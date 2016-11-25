@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 HW 2
-
 @author: jingtinggao
 """
 
@@ -13,19 +12,40 @@ HW 2
 '''
 1. Represent a small bilingual lexicon as a Python dictionary in the following 
 fashion {"merry":"god", "christmas":"jul", "and":"och", "happy":gott", 
-"new":"nytt", "year":"år"} and use it to translate your Christmas cards from 
+"new":"nytt", "year":"år"} and use it to translate your Christmas cards from 
 English into Swedish. That is, write a function translate() that takes a list 
 of English words and returns a list of Swedish words.
 '''
-
 lexicon={"merry":"god", "christmas":"jul", "and":"och", "happy":"gott", 
-"new":"nytt", "year":"år"}   # Built a dictionary
-
+"new":"nytt", "year":"år"}   # Built a dictionary
+def lexicon_dic(inputWord):#define the dictionary that we will use later
+    """
+    Define a function working as a dictionary
+    Parameters:
+    inputWord-a string we input
+    Returns:
+    the translation of the string we input by this dictionary
+    """ 
+    if inputWord in lexicon_dic:#if the word is in the dictionary, translate it
+             return lexicon_dic.get(inputWord)
+    else:
+             return inputWord
+             # if word is not in the dictionary, keep the word
 def translate(english):
-    swedish=[]   # Set initial swedish as empty list
-    for w in english:   #for loop take every word in the list
-            swedish+=[lexicon[w.lower()]]#add each wor translated by the lexicon
-    return swedish
+    """
+    Define a function translate your Christmas cards from English into Swedish
+    Parameters:
+    string-a string we input
+    Returns:
+    the translation in Swedish
+    """ 
+    words = string.split( );
+    translation = ""#create a new string
+    for i in words:
+        translation = translation + lexicon_dic(i) + " "
+        #use the function we defined early to translate the part that need to 
+        #be translated
+    return translation
     
 translate(["Merry","Christmas","and","Happy","New","Year"])
 
@@ -37,8 +57,15 @@ listing of the characters contained in it. Represent the requency listing as
 a Python dictionary. Try it with something like 
 char_freq("abbabcbdbabdbdbabababcbcbab").  
 '''
-
 def char_freq(string):
+    """
+    Write a function char_freq()that takes a string and builds a
+    frequency listing of the characters contained in it. 
+    Parameters:
+    string-a string we input
+    Returns:
+    show how many times the each character appears in the string we input
+    """
     freq={}   #set the initial frequency as empty set
     for char in string:   #for loop to take each character in the string
         freq[char]=freq.get(char,0)+1   #find the character with .get(i,0)
@@ -46,7 +73,6 @@ def char_freq(string):
     return freq
 
 char_freq("abbabcbdbabdbdbabababcbcbab")
-
 
 '''
 3. In cryptography, a Caesar cipher is a very simple encryption techniques in 
@@ -70,7 +96,6 @@ you're done, you will be able to read the following secret message:
 Note that since English has 26 characters, your ROT-13 program will be able to 
 both encode and decode texts written in English.
 '''
-
 key = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 'h':'u', 
        'i':'v', 'j':'w', 'k':'x', 'l':'y', 'm':'z', 'n':'a', 'o':'b', 'p':'c', 
        'q':'d', 'r':'e', 's':'f', 't':'g', 'u':'h', 'v':'i', 'w':'j', 'x':'k',
@@ -78,7 +103,15 @@ key = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 'h':'u',
        'G':'T', 'H':'U', 'I':'V', 'J':'W', 'K':'X', 'L':'Y', 'M':'Z', 'N':'A', 
        'O':'B', 'P':'C', 'Q':'D', 'R':'E', 'S':'F', 'T':'G', 'U':'H', 'V':'I', 
        'W':'J', 'X':'K', 'Y':'L', 'Z':'M'}   # Built a dictionary
-def rot_13(code):   
+def rot_13(code):
+    """
+    implement an encoder/decoder of ROT-13. Then read the following secret 
+    message: Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!
+    Parameters:
+    string-a string we input
+    Returns:
+    the decoded string
+    """ 
     newcode=''   # Set the initial newcode as none
     for char in code:   # For loop taking every character in the string separately
         if char in key:   # if the character belongs to the dictionary
@@ -89,7 +122,7 @@ def rot_13(code):
 
 rot_13('Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!')        
  
- 
+
 '''
 4. Define a simple "spelling correction" function correct()that takes a string 
 and sees to it that 1) two or more occurrences of the space character is 
@@ -97,9 +130,18 @@ compressed into one, and 2) inserts an extra space after a period if the
 period is directly followed by a letter. E.g. correct("This is very funny and 
 cool.Indeed!")should return "This is very funny and cool. Indeed!" 
 '''
- 
 import re   # Import reglar expression operation
 def correct(string):
+    """
+    Define a simple "spelling correction" function correct()that takes a
+    string and sees to it that 1) two or more occurrences of the space 
+    character is compressed into one, and 2) inserts an extra space
+    after a period if the period is directly followed by a letter.
+    Parameters:
+    string-a string we input
+    Returns:
+    the correction of the string
+    """  
     compress=re.sub(' +',' ',string)   # Compress the extra space
     insert=re.sub('\.','. ',compress)   # Insert a space after a period
     correction=insert   #the final correction is equal to insert
@@ -120,8 +162,15 @@ Note however that the rules must be regarded as heuristic, in the sense that
 you must not expect them to work for all cases. Tip: Check out the string 
 method endswith().  
 '''
-
 def make_3sg_form(verb):
+    """
+    define a function make_3sg_form()which given a verb in infinitive
+    form returns its third person singular form. 
+    Parameters:
+    word-a word(verb) we input
+    Returns:
+    the 3rd perston singular form of the verb
+    """
     if verb.endswith('y'):   #if the word end with y
         newverb=verb[:-1]+'ies'   #substract y and add ies
     elif verb.endswith(('o','ch','s','sh','x','z')): #if the word end as listed
@@ -146,10 +195,33 @@ its present participle form. Test your function with words such as lie, see,
 move and hug. However, you must not expect such simple rules to work for all 
 cases.
 '''
-
-
-
-
+def make_ing_form(verb):
+    """
+    Define a function
+    make_ing_form()which given a verb in infinitive form returns its
+    present participle form.
+    Parameters:
+    verb-a word(verb) we input
+    Returns:
+    the present participle form of the verb
+    """  
+    if verb.endswith('e'):
+        presentverb = verb[:-1]+'ing'
+        #returns all elements in the string except the last one 'e
+        #then add 'ing'
+    elif verb.endswith('ie'):
+        presentverb = verb.rstrip('ie')+'ying'
+        #use rstrip to strip characters from the end of the string
+        #then add 'ying'
+    elif (verb[-2] in 'aeiou')and(verb[-3] not in 'aeiou')and(verb[-1] not in 'aeiou'):
+        #if the word consist of consonant-vowel-consonant
+        presentverb = verb+verb[-1]+'ing'
+        #double(add) the last letter in the string using[-1]
+        #add 'ing'
+    else:
+        presentverb = verb+'ing'
+    return presentverb
+make_ing_form('hug')
               
 '''
 7. Using the higher order function reduce(), write a function 
@@ -160,6 +232,14 @@ as well call the reduce() function directly?
        
 from functools import reduce   #import reduce function from library
 def max_in_list(lst): 
+    """
+    Using the higher order function reduce(), write a function max_in_list()that
+    takes a list of numbers and returns the largest one.
+    Parameters:
+    list-a list of number we input
+    Returns:
+    the largest number in the list
+    """  
     return reduce(lambda x,y:x if x>y else y, lst) #return with reduce function
     
 max_in_list([3,10,8,9,12,5])
@@ -199,42 +279,64 @@ word_to_length_three (["A", "list", "of", "words"])
 9. Write a function find_longest_word()that takes a list of words and returns 
 the length of the longest one. Use only higher order functions.  
 '''
-
 def find_longest_word(lst):
+    """
+    Write a function find_longest_word()that takes a list of words
+    and returns the length of the longest one. Use only higher order
+    functions. 
+    Parameters:
+    string-a string we input
+    Returns:
+    the longest word in the list
+    """ 
     return max(list(map(len,lst)))
     #apply map function to get each length of word in the list and find the 
     #maximum in the list
 
 find_longest_word(['find','the','longest','word','please'])
 
-
 '''
 10. Using the higher order function filter(), define a function 
 filter_long_words()that takes a list of words and an integer n and returns the 
 list of words that are longer than n.  
 '''
-
 def filter_long_words(lst,n):
+    """
+    Write a function filter_long_words()that takes a list of words and an integer 
+    n and returns the list of words that are longer than n.
+    arameters:
+    list-a list of word we input
+    n-a number we input
+    Returns:
+    a new list that filtered the word in the list we input longer than 'n'
+    """
     return list(filter(lambda x:len(x)>n,lst))
     #apply filter to get all the inputs satisfies the condition that 
     #length is greater than n
     
 filter_long_words(['how','to','filter','long','words'],3)    
 
-
 '''
 11. Represent a small bilingual lexicon as a Python dictionary in the 
 following fashion {"merry":"god", "christmas":"jul","and":"och","happy":"gott",
-"new":"nytt","year":"år"}and use it to translate your Christmas cards from 
+"new":"nytt","year":"år"}and use it to translate your Christmas cards from 
 English into Swedish. Use the higher order function map()to write a function 
 translate() that takes a list of English words and returns a list of Swedish 
 words.  
 '''
-
 lexicon={"merry":"god", "christmas":"jul","and":"och","happy":"gott",
-"new":"nytt","year":"år"}
+"new":"nytt","year":"år"}
 
 def translate(english):
+    """
+    Use the higher order function map()to write
+    a function translate() that takes a list of English words and
+    returns a list of Swedish words. 
+    Parameters:
+    inputWords-a list of word we input
+    Returns:
+    the Swedish translation of the list 
+    """ 
     return list(map(lambda x:lexicon[x.lower()],english))
     #list the result of translation which is mapped from english word to 
     #corresponding swidsh word
@@ -246,9 +348,15 @@ translate(["Merry","Christmas","and","Happy","New","Year"])
 12. Implement the higher order functions map(), filter()and reduce(). 
 (They are built-in but writing them yourself may be a good exercise.)    
 ''' 
- 
-# map()
+ # map()
 def map_func(function, iterable):
+    """
+    Defining a function work as filter function 
+    Parameters: 
+    function-a function we defined
+    list-a list of number we input
+    Return: filter the number in the list which do not satisfy the function we defined
+    """    
     mresult=[]
     for i in iterable:   #for loop take every i in iterable
         mresult.append((funtion(i))   #apply function to each i in iterable 
@@ -256,6 +364,13 @@ def map_func(function, iterable):
   
 #filter()
 def filter_func(function, iterable):
+"""
+    Defining a function work as filter function 
+    Parameters: 
+    function-a function we defined
+    list-a list of number we input
+    Return: filter the number in the list which do not satisfy the function we defined
+    """    
     fresult=[]
     for i in iterable:   #for loop take every i in iterable
         if function(i)==True:   #if the item is trun under the function
@@ -264,6 +379,13 @@ def filter_func(function, iterable):
     
 #reduce()
 def reduce_func(function, sequence,initial=None):
+    """
+    Defining a function work as reduce function 
+    Parameters: 
+    function-a function we defined
+    list-a list of number we input
+    Return: reduce the number in the list that satisfy the function we defined
+    """
     rresult=initial if initial else esquence[0]   #the result is initial value
     for i in wequence:   #for loop take each element in sequence
         rresult=function(rresult,i)   #apply the function to the initial result
