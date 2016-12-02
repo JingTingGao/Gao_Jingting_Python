@@ -17,7 +17,7 @@ def max(a, b):
     Define a function max()that takes two numbers as arguments and returns 
     the largest of them. Use the if-then-else construct available in Python.
     Parameters:
-    a,b-numbers we input
+    a,b: numbers we input
     Returns:
     the larger number of two
     """
@@ -37,7 +37,7 @@ def max_of_three(a, b, c):
     Define a function max_of_three()that takes three numbers as arguments 
     and returns the largest of them. 
     Parameters:
-    a,b,c-numbers we input
+    a,b,c: numbers we input
     Returns:
     the largest number of three
     """
@@ -64,7 +64,7 @@ def length(string):
     """
     Define a function that computes the length of a given list or string.  
     Parameters:
-    string-the string we input
+    string: the string we input
     Returns:
     a number of the string's length
     """
@@ -85,7 +85,7 @@ def v(char):
     Write a function that takes a character (i.e. a string of length 1) and
     returns True if it is a vowel, False otherwise. 
     Parameters:
-    x-a letter we input
+    char: a character we input
     Returns:
     True if the letter is vowel, false otherwise
     """
@@ -113,14 +113,14 @@ def translate(string):
     an occurrence of "o"in between. For example, translate("this is fun") should 
     return the string"tothohisosisosfofunon".
     Parameters:
-    x-a string we input
+    string: a string we input
     Returns:
     the "robber's language" translation of the string we input
     """
     vowels=['a','A','i','I','u','U','e','E','o','O']   #a set of everything do not need to change
     result=''   #set the initial result
     for l in string:
-        l=l.replace(" ","")#consider spaces
+        l=l.replace(" ","")#eliminate spaces
         if l in vowels:   #for elements not necessary to change just add on
             result+=l
         else:   #translate consonants which are not belong to set of vowels 
@@ -140,7 +140,7 @@ def sum(lst):
     Define a function sum() that sums all 
     the numbers in a list of numbers. 
     Parameters:
-    inputList-a list of number we input
+    lst: a list of number we input
     Returns:
     the sum of all number in the list
     """
@@ -156,7 +156,7 @@ def multiply(lst):
     Define a function multiply() that multiplies all 
     the numbers in a list of numbers. 
     Parameters:
-    inputList-a list of number we input
+    lst: a list of number we input
     Returns:
     the product of all number in the list
     """
@@ -172,14 +172,14 @@ multiply([1,2,3,4])
 of a string. For example, reverse("I am testing") should 
 return the string "gnitset ma I".
 '''
+def reverse(string):
     """
     Define a function reverse()that computes the reversal of a string. 
     Parameters:
-    string-a string we input
+    string: a string we input
     Returns:
     the reversed string
     """
-def reverse(string):
     return string[::-1]   #from the 1st character to the last written backward
     
 reverse("I am testing")
@@ -193,7 +193,7 @@ def is_palindrome(string):
     """
     Define a function is_palindrome()that recognizes palindromes. 
     Parameters:
-    string-a string we input
+    string: a string we input
     Returns:
     True if the string is palindromes, false if not
     """
@@ -209,28 +209,27 @@ is_palindrome("sb")
 i.e. a number, string, etc) x and a list of values a, 
 and returns True if x is a member of a, False otherwise. 
 (Note that this is exactly what the in operator does, but 
-  for the sake of the exercise you should pretend Python 
-  did not have this operator.)
+for the sake of the exercise you should pretend Python 
+did not have this operator.)
 ''' 
 def is_member(x, lst):
     """
     Write a function is_member()that takes a value x and a list of values a, 
-    and returns True if x is a member of a,False otherwise.
+    and returns True if x is a member of the list,False otherwise.
     Parameters:
-    x-a number we input
-    a-a list we input
+    x: a number we input
+    lst: a list we input
     Returns:
-    True if number 'x' is in list 'a', false if not
+    True if number 'x' is in the list, false if not
     """
-    for a in lst:
-        if x==a:   #check if x equals to any element in the list 
+    for a in range(0,len(lst)):
+        if x==lst[a]:   #check if x equals to any element in the list 
             return True
     return False
 
 is_member('a',['aaa','abd','c',1])
 is_member('b',['g','e'])
-#Comment: You can improve the logic with 'in' which is a logic judge.
-
+#Comment: You can improve the logic with 'in' which is a logic judge. ???
 '''
 10. Define a function overlapping() that takes two lists and 
 returns True if they have at least one member in common, 
@@ -243,7 +242,7 @@ def overlapping(lst1, lst2):
     Define a function overlapping()that takes two lists and returns True if they 
     have at least one member in common, False otherwise.
     Parameters:
-    x,y-two lists we input
+    lst1,lst2: two lists we input
     Returns:
     True if there is a overlapping number in two lists, false if not
     """
@@ -271,8 +270,8 @@ def generate_n_chars(n,c):
     Define a function generate_n_chars()that takes an integer nand a character 
     c and returns a string, n characters long.
     Parameters:
-    x-a number we input
-    y-a letter we input
+    n: a number we input
+    c: a character we input
     Returns:
     the letter we input can appear 'x' times
     """
@@ -295,7 +294,7 @@ def histogram(lst):
     Define a procedure histogram()that takes a list of integers and prints
     a histogram to the screen.
     Parameters:
-    list-a list we input
+    lst: a list we input
     Returns:
     the histogram '*' will appear as many times as each element in the list we input
     """
@@ -317,7 +316,7 @@ def max_in_list(lst):
     Write a function max_in_list()that takes a list of numbers and returns the 
     largest one. 
     Parameters:
-    list-a list we input
+    lst: a list we input
     Returns:
     the largest number in the list
     """
@@ -338,7 +337,7 @@ def length_of_words(lst):
     Write a program that maps a list of words into a list of integers representing
     the lengths of the correponding words. 
     Parameters:
-    word-a list consists different words
+    lst: a list consists different words
     Returns:
     a list of the length of each word in the list we input
     """
@@ -358,7 +357,7 @@ def find_longest_word(lst):
     Write a function find_longest_word()that takes a list of words and returns 
     the length of the longest one. 
     Parameters:
-    list-a list consists different words
+    lst: a list consists different words
     Returns:
     the longest word in the list
     """
@@ -380,8 +379,8 @@ def filter_long_words(lst, n):
     Write a function filter_long_words()that takes a list of words and an integer 
     n and returns the list of words that are longer than n.
     Parameters:
-    list-a list consists different words
-    n-a number we input
+    lst: a list consists different words
+    n: a number we input
     Returns:
     a new list that filtered the word longer than 'n'
     """
