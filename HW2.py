@@ -22,7 +22,7 @@ def lexicon_dic(inputWord):#define the dictionary that we will use later
     """
     Define a function working as a dictionary
     Parameters:
-    inputWord-a string we input
+    inputWord: a string we input
     Returns:
     the translation of the string we input by this dictionary
     """ 
@@ -35,7 +35,7 @@ def translate(english):
     """
     Define a function translate your Christmas cards from English into Swedish
     Parameters:
-    string-a string we input
+    english: a string we input
     Returns:
     the translation in Swedish
     """ 
@@ -62,7 +62,7 @@ def char_freq(string):
     Write a function char_freq()that takes a string and builds a
     frequency listing of the characters contained in it. 
     Parameters:
-    string-a string we input
+    string: a string we input
     Returns:
     show how many times the each character appears in the string we input
     """
@@ -108,7 +108,7 @@ def rot_13(code):
     implement an encoder/decoder of ROT-13. Then read the following secret 
     message: Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!
     Parameters:
-    string-a string we input
+    code: a string we input
     Returns:
     the decoded string
     """ 
@@ -138,7 +138,7 @@ def correct(string):
     character is compressed into one, and 2) inserts an extra space
     after a period if the period is directly followed by a letter.
     Parameters:
-    string-a string we input
+    string: a string we input
     Returns:
     the correction of the string
     """  
@@ -167,7 +167,7 @@ def make_3sg_form(verb):
     define a function make_3sg_form()which given a verb in infinitive
     form returns its third person singular form. 
     Parameters:
-    word-a word(verb) we input
+    verb: a verb we input
     Returns:
     the 3rd perston singular form of the verb
     """
@@ -201,7 +201,7 @@ def make_ing_form(verb):
     make_ing_form()which given a verb in infinitive form returns its
     present participle form.
     Parameters:
-    verb-a word(verb) we input
+    verb: a verb we input
     Returns:
     the present participle form of the verb
     """  
@@ -236,7 +236,7 @@ def max_in_list(lst):
     Using the higher order function reduce(), write a function max_in_list()that
     takes a list of numbers and returns the largest one.
     Parameters:
-    list-a list of number we input
+    lst: a list of number we input
     Returns:
     the largest number in the list
     """  
@@ -254,6 +254,14 @@ and 3) using list comprehensions.
 
 # 1) using a for-loop
 def word_to_length_one(lst):
+    """
+    Write a program that maps a list of words into a list of integers representing 
+    the lengths of the correponding words. 
+    Parameters: 
+    lst: a list of words we input
+    Returns:
+    a list of integers representing the lengths of the correponding words in the list
+    """
     length=[]   #set the initial length with list of empty
     for w in lst:   #for loop take every word in the list
         length.append(len(w))   #add the length of each word to the list
@@ -263,6 +271,14 @@ word_to_length_one (["A", "list", "of", "words"])
 
 # 2) using the higher order function map()
 def word_to_length_two(lst):
+    """
+    Write a program that maps a list of words into a list of integers representing 
+    the lengths of the correponding words. 
+    Parameters: 
+    lst: a list of words we input
+    Returns:
+    a list of integers representing the lengths of the correponding words in the list
+    """   
     return list(map(len,lst))   
     #map each word in the list with length function and list them
     
@@ -270,6 +286,14 @@ word_to_length_two (["A", "list", "of", "words"])
 
 # 3) using list comprehensions
 def word_to_length_three(lst):
+    '''
+    Write a program that maps a list of words into a list of integers representing 
+    the lengths of the correponding words. 
+    Parameters: 
+    lst: a list of words we input
+    Returns:
+    a list of integers representing the lengths of the correponding words in the list
+    '''
     return [len(w) for w in lst]   #return the list of length for each word
 
 word_to_length_three (["A", "list", "of", "words"])
@@ -285,7 +309,7 @@ def find_longest_word(lst):
     and returns the length of the longest one. Use only higher order
     functions. 
     Parameters:
-    string-a string we input
+    lst: a list of words we input
     Returns:
     the longest word in the list
     """ 
@@ -305,8 +329,8 @@ def filter_long_words(lst,n):
     Write a function filter_long_words()that takes a list of words and an integer 
     n and returns the list of words that are longer than n.
     arameters:
-    list-a list of word we input
-    n-a number we input
+    lst: a list of word we input
+    n: a number we input
     Returns:
     a new list that filtered the word in the list we input longer than 'n'
     """
@@ -329,12 +353,11 @@ lexicon={"merry":"god", "christmas":"jul","and":"och","happy":"gott",
 
 def translate(english):
     """
-    Use the higher order function map()to write
-    a function translate() that takes a list of English words and
-    returns a list of Swedish words. 
+    Use the higher order function map()to write a function translate() 
+    that takes a list of English words and returns a list of Swedish words. 
     Parameters:
-    inputWords-a list of word we input
-    Returns:
+    english: a list of word we input
+    Returns: 
     the Swedish translation of the list 
     """ 
     return list(map(lambda x:lexicon[x.lower()],english))
@@ -349,45 +372,48 @@ translate(["Merry","Christmas","and","Happy","New","Year"])
 (They are built-in but writing them yourself may be a good exercise.)    
 ''' 
  # map()
-def map_func(function, iterable):
+def map_func(function, lst):
     """
     Defining a function work as filter function 
     Parameters: 
-    function-a function we defined
-    list-a list of number we input
-    Return: filter the number in the list which do not satisfy the function we defined
+    function: a function we defined
+    lst: a list of number we input
+    Return: 
+    filter the number in the list which do not satisfy the function we defined
     """    
     mresult=[]
-    for i in iterable:   #for loop take every i in iterable
+    for i in lst:   #for loop take every i in iterable
         mresult.append((funtion(i))   #apply function to each i in iterable 
     return mresult                    #in order to get result
   
 #filter()
-def filter_func(function, iterable):
-"""
+def filter_func(function, lst):
+    """
     Defining a function work as filter function 
     Parameters: 
-    function-a function we defined
-    list-a list of number we input
-    Return: filter the number in the list which do not satisfy the function we defined
+    function: a function we defined
+    lst: a list of number we input
+    Return: 
+    filter the number in the list which do not satisfy the function we defined
     """    
     fresult=[]
-    for i in iterable:   #for loop take every i in iterable
+    for i in lst:   #for loop take every i in iterable
         if function(i)==True:   #if the item is trun under the function
             fresult.append(i)   #add the item to the result
     return fresult
     
 #reduce()
-def reduce_func(function, sequence,initial=None):
+def reduce_func(function,lst):
     """
     Defining a function work as reduce function 
     Parameters: 
-    function-a function we defined
-    list-a list of number we input
-    Return: reduce the number in the list that satisfy the function we defined
+    function: a function we defined
+    lst: a list of number we input
+    Return: 
+    reduce the number in the list that satisfy the function we defined
     """
-    rresult=initial if initial else esquence[0]   #the result is initial value
-    for i in wequence:   #for loop take each element in sequence
+    rresult=lst[0]   #the result is initial value
+    for i in range(0,len(lst)):   #for loop take each element in sequence
         rresult=function(rresult,i)   #apply the function to the initial result
     return rresult
     
